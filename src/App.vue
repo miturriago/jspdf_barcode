@@ -32,12 +32,133 @@ export default {
 
     var doc = new jsPDF();
 
+    
     doc.addImage(imgData, 'JPEG', 5, 15,205, 270)
+    doc.setFont("helvetica");//tipo de letra
+    //********************Destinatario*************************
     doc.addImage(img.src, 'JPEG', 130 , 16, 40, 15);//BARCODE
+
+    //Tipo pago
+    doc.setFontSize(8);
+    doc.text("Crédito",94,30) //Tipo pago
+    doc.setFontSize(6);
+    doc.text("Fecha",43,36)//Fecha envío remitente
+    doc.text("Lugar",78,36)//Lugar origen remitente
+
+    doc.text("Fecha",120,36)//Fecha envío destinatario
+    doc.text("Lugar",163,36)//Lugar origen destinatario
+    doc.setFontSize(7);
+    doc.text("OS",175,32)//OS
+
+    doc.text("Nombre remitente",23,42) //Nombre remitente
+    doc.text("NIT",23,45) //  NIT remitente
+    doc.text("direccion",23,48) //direccion remitente
+    doc.text("teléfono",23,51) //telefono remitente
+    doc.text("lugar",23,54) //lugar remitente
+    doc.text("cod postal",92,58)//Codigo postal remitente
+
+    doc.text("Nombre destinatario",110,42) //Nombre destinatario
+    doc.text("NIT",110,45) //  NIT destinatario
+    doc.text("direccion",110,48) //direccion destinatario
+    doc.text("teléfono",110,51) //telefono destinatario
+    doc.text("lugar",110,54) //lugar destinatario
+    doc.text("cod postal",180,58)//Codigo postal destinatario
+
+    //datos envío
+    doc.setFontSize(6);
+    doc.text("1",62,66)//cantidad
+    doc.text("1",62,71)//peso
+    doc.text("1",62,76)//volumen
+    doc.text("1",62,81)//valor asegurado
+    doc.text("1",62,86)//valor social
+
+    //Observación
+    doc.setFontSize(5);
+    doc.text("Observaciones",119,66)//Observaciones
+
+    //********************Prueba de entrega*************************
     doc.addImage(img.src, 'JPEG', 130 , 105, 40, 15);//BARCODE
+
+    //Tipo pago
+    doc.setFontSize(8);
+    doc.text("Crédito",94,119) //Tipo pago
+    doc.setFontSize(6);
+    doc.text("Fecha",43,125)//Fecha envío remitente
+    doc.text("Lugar",78,125)//Lugar origen remitente
+
+    doc.text("Fecha",120,125)//Fecha envío destinatario
+    doc.text("Lugar",163,125)//Lugar origen destinatario
+    doc.setFontSize(7);
+    doc.text("OS",175,121)//OS
+
+    doc.text("Nombre remitente",23,131) //Nombre remitente
+    doc.text("NIT",23,134) //  NIT remitente
+    doc.text("direccion",23,137) //direccion remitente
+    doc.text("teléfono",23,140) //telefono remitente
+    doc.text("lugar",23,143) //lugar remitente
+    doc.text("cod postal",92,148)//Codigo postal remitente
+
+    doc.text("Nombre destinatario",110,131) //Nombre destinatario
+    doc.text("NIT",110,134) //  NIT destinatario
+    doc.text("direccion",110,137) //direccion destinatario
+    doc.text("teléfono",110,140) //telefono destinatario
+    doc.text("lugar",110,143) //lugar destinatario
+    doc.text("cod postal",180,148)//Codigo postal destinatario
+
+    //datos envío
+    doc.setFontSize(6);
+    doc.text("1",62,156)//cantidad
+    doc.text("1",62,161)//peso
+    doc.text("1",62,166)//volumen
+    doc.text("1",62,171)//valor asegurado
+    doc.text("1",62,176)//valor social
+
+    //Observación
+    doc.setFontSize(5);
+    doc.text("Observaciones",119,156)//Observaciones
+
+    //********************Remitente*************************
     doc.addImage(img.src, 'JPEG', 130 , 196, 40, 15);//BARCODE
 
-    doc.save('guía crédito_contado.pdf');
+    //Tipo pago
+    doc.setFontSize(8);
+    doc.text("Crédito",94,211) //Tipo pago
+    doc.setFontSize(6);
+    doc.text("Fecha",43,217)//Fecha envío remitente
+    doc.text("Lugar",78,217)//Lugar origen remitente
+
+    doc.text("Fecha",120,217)//Fecha envío destinatario
+    doc.text("Lugar",163,217)//Lugar origen destinatario
+    doc.setFontSize(7);
+    doc.text("OS",175,213)//OS
+
+    doc.text("Nombre remitente",23,223) //Nombre remitente
+    doc.text("NIT",23,226) //  NIT remitente
+    doc.text("direccion",23,229) //direccion remitente
+    doc.text("teléfono",23,232) //telefono remitente
+    doc.text("lugar",23,235) //lugar remitente
+    doc.text("cod postal",92,239)//Codigo postal remitente
+
+    doc.text("Nombre destinatario",110,223) //Nombre destinatario
+    doc.text("NIT",110,226) //  NIT destinatario
+    doc.text("direccion",110,229) //direccion destinatario
+    doc.text("teléfono",110,232) //telefono destinatario
+    doc.text("lugar",110,235) //lugar destinatario
+    doc.text("cod postal",180,239)//Codigo postal destinatario
+
+    //datos envío
+    doc.setFontSize(6);
+    doc.text("1",62,248)//cantidad
+    doc.text("1",62,253)//peso
+    doc.text("1",62,258)//volumen
+    doc.text("1",62,263)//valor asegurado
+    doc.text("1",62,268)//valor social
+
+    //Observación
+    doc.setFontSize(5);
+    doc.text("Observaciones",119,248)//Observaciones
+
+doc.save('guía crédito_contado.pdf');
  },
 
  downloadMasiva() {
