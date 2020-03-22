@@ -170,14 +170,190 @@ doc.save('guía crédito_contado.pdf');
      var doc = new jsPDF();
 
     doc.addImage(imgData, 'JPEG', 3, 12,205, 270)
+    doc.setFont("helvetica");//tipo de letra
+
+    //Primer formato
     doc.addImage(img.src, 'JPEG', 50 , 16, 30, 10);//BARCODE
+    doc.setFontSize(4);
+    doc.text("fecha",94,41); //Fecha
+    doc.setFontSize(5);
+    doc.text("O.S",94,48)//O.S
+    doc.text("N.I.P",94,55)//N.I.P
+    doc.setFontSize(6);
+    doc.text("Número de guía",6,45) //guía
+    doc.text("Remitente",6,51) //NOmbre Remitente
+    doc.setFontSize(5);
+    doc.text("Destinatario",6,61) //NOmbre destinatario
+    doc.text("direccion",6,63) //direccion destinatario
+    doc.text("telefono",6,65) //telefono destinatario
+    doc.text("ciudad",6,67) //ciudad destinatario
+
+    doc.setFontSize(8);
+    doc.text("Nombre remitente",30,40) //Nombre remitente
+    doc.text("Nombre destinatario",30,45) //Nombre Destinatario
+    doc.text("Direccion",30,48) //Direccion destinatario
+    doc.text("Telefono",30,51) //telefono destinatario
+    doc.text("Ciudad",30,54) //ciudad destinatario
+
+    //Segundo formato
     doc.addImage(img.src, 'JPEG', 155 , 16, 30, 10);//BARCODE
+    doc.setFontSize(4);
+    doc.text("fecha",198,41); //Fecha
+    doc.setFontSize(5);
+    doc.text("O.S",198,48)//O.S
+    doc.text("N.I.P",198,55)//N.I.P
+    doc.setFontSize(6);
+    doc.text("Número de guía",110,45) //guía
+    doc.text("Remitente",110,51) //NOmbre Remitente
+    doc.setFontSize(5);
+    doc.text("Destinatario",110,61) //NOmbre destinatario
+    doc.text("direccion",110,63) //direccion destinatario
+    doc.text("telefono",110,65) //telefono destinatario
+    doc.text("ciudad",110,67) //ciudad destinatario
+
+    doc.setFontSize(8);
+    doc.text("Nombre remitente",134,40) //Nombre remitente
+    doc.text("Nombre destinatario",134,45) //Nombre Destinatario
+    doc.text("Direccion",134,48) //Direccion destinatario
+    doc.text("Telefono",134,51) //telefono destinatario
+    doc.text("Ciudad",134,54) //ciudad destinatario
+
+    //tercer formato
     doc.addImage(img.src, 'JPEG', 50 , 83, 30, 10);//BARCODE
+    doc.setFontSize(4);
+    doc.text("fecha",94,109); //Fecha
+    doc.setFontSize(5);
+    doc.text("O.S",94,116)//O.S
+    doc.text("N.I.P",94,123)//N.I.P
+    doc.setFontSize(6);
+    doc.text("Número de guía",6,113) //guía
+    doc.text("Remitente",6,119) //NOmbre Remitente
+    doc.setFontSize(5);
+    doc.text("Destinatario",6,129) //NOmbre destinatario
+    doc.text("direccion",6,131) //direccion destinatario
+    doc.text("telefono",6,133) //telefono destinatario
+    doc.text("ciudad",6,135) //ciudad destinatario
+
+    doc.setFontSize(8);
+    doc.text("Nombre remitente",30,108) //Nombre remitente
+    doc.text("Nombre destinatario",30,113) //Nombre Destinatario
+    doc.text("Direccion",30,116) //Direccion destinatario
+    doc.text("Telefono",30,119) //telefono destinatario
+    doc.text("Ciudad",30,122) //ciudad destinatario
+    //cuarto formato
     doc.addImage(img.src, 'JPEG', 155 , 83, 30, 10);//BARCODE
+    doc.setFontSize(4);
+    doc.text("fecha",198,109); //Fecha
+    doc.setFontSize(5);
+    doc.text("O.S",198,116)//O.S
+    doc.text("N.I.P",198,123)//N.I.P
+    doc.setFontSize(6);
+    doc.text("Número de guía",110,113) //guía
+    doc.text("Remitente",110,119) //NOmbre Remitente
+    doc.setFontSize(5);
+    doc.text("Destinatario",110,129) //NOmbre destinatario
+    doc.text("direccion",110,131) //direccion destinatario
+    doc.text("telefono",110,133) //telefono destinatario
+    doc.text("ciudad",110,135) //ciudad destinatario
+
+    doc.setFontSize(8);
+    doc.text("Nombre remitente",134,108) //Nombre remitente
+    doc.text("Nombre destinatario",134,113) //Nombre Destinatario
+    doc.text("Direccion",134,116) //Direccion destinatario
+    doc.text("Telefono",134,119) //telefono destinatario
+    doc.text("Ciudad",134,122) //ciudad destinatario
+
+    //quinto formato
     doc.addImage(img.src, 'JPEG', 50 , 150, 30, 10);//BARCODE
+    doc.setFontSize(4);
+    doc.text("fecha",94,176); //Fecha
+    doc.setFontSize(5);
+    doc.text("O.S",94,183)//O.S
+    doc.text("N.I.P",94,190)//N.I.P
+    doc.setFontSize(6);
+    doc.text("Número de guía",6,180) //guía
+    doc.text("Remitente",6,186) //NOmbre Remitente
+    doc.setFontSize(5);
+    doc.text("Destinatario",6,196) //NOmbre destinatario
+    doc.text("direccion",6,198) //direccion destinatario
+    doc.text("telefono",6,200) //telefono destinatario
+    doc.text("ciudad",6,202) //ciudad destinatario
+
+    doc.setFontSize(8);
+    doc.text("Nombre remitente",30,175) //Nombre remitente
+    doc.text("Nombre destinatario",30,180) //Nombre Destinatario
+    doc.text("Direccion",30,183) //Direccion destinatario
+    doc.text("Telefono",30,186) //telefono destinatario
+    doc.text("Ciudad",30,189) //ciudad destinatario
+
+    //sexto fromato
     doc.addImage(img.src, 'JPEG', 155 , 150, 30, 10);//BARCODE
+    doc.setFontSize(4);
+    doc.text("fecha",198,176); //Fecha
+    doc.setFontSize(5);
+    doc.text("O.S",198,183)//O.S
+    doc.text("N.I.P",198,190)//N.I.P
+    doc.setFontSize(6);
+    doc.text("Número de guía",110,180) //guía
+    doc.text("Remitente",110,186) //NOmbre Remitente
+    doc.setFontSize(5);
+    doc.text("Destinatario",110,196) //NOmbre destinatario
+    doc.text("direccion",110,198) //direccion destinatario
+    doc.text("telefono",110,200) //telefono destinatario
+    doc.text("ciudad",110,202) //ciudad destinatario
+
+    doc.setFontSize(8);
+    doc.text("Nombre remitente",134,175) //Nombre remitente
+    doc.text("Nombre destinatario",134,180) //Nombre Destinatario
+    doc.text("Direccion",134,183) //Direccion destinatario
+    doc.text("Telefono",134,186) //telefono destinatario
+    doc.text("Ciudad",134,189) //ciudad destinatario
+
+    //septimo formato
     doc.addImage(img.src, 'JPEG', 50 , 217, 30, 10);//BARCODE
+    doc.setFontSize(4);
+    doc.text("fecha",94,244); //Fecha
+    doc.setFontSize(5);
+    doc.text("O.S",94,251)//O.S
+    doc.text("N.I.P",94,258)//N.I.P
+    doc.setFontSize(6);
+    doc.text("Número de guía",6,248) //guía
+    doc.text("Remitente",6,254) //NOmbre Remitente
+    doc.setFontSize(5);
+    doc.text("Destinatario",6,264) //NOmbre destinatario
+    doc.text("direccion",6,266) //direccion destinatario
+    doc.text("telefono",6,268) //telefono destinatario
+    doc.text("ciudad",6,270) //ciudad destinatario
+
+    doc.setFontSize(8);
+    doc.text("Nombre remitente",30,243) //Nombre remitente
+    doc.text("Nombre destinatario",30,247) //Nombre Destinatario
+    doc.text("Direccion",30,250) //Direccion destinatario
+    doc.text("Telefono",30,253) //telefono destinatario
+    doc.text("Ciudad",30,256) //ciudad destinatario
+
+    //octavo formato
     doc.addImage(img.src, 'JPEG', 155 , 217, 30, 10);//BARCODE
+    doc.setFontSize(4);
+    doc.text("fecha",198,244); //Fecha
+    doc.setFontSize(5);
+    doc.text("O.S",198,251)//O.S
+    doc.text("N.I.P",198,258)//N.I.P
+    doc.setFontSize(6);
+    doc.text("Número de guía",110,248) //guía
+    doc.text("Remitente",110,254) //NOmbre Remitente
+    doc.setFontSize(5);
+    doc.text("Destinatario",110,264) //NOmbre destinatario
+    doc.text("direccion",110,266) //direccion destinatario
+    doc.text("telefono",110,268) //telefono destinatario
+    doc.text("ciudad",110,270) //ciudad destinatario
+
+    doc.setFontSize(8);
+    doc.text("Nombre remitente",134,243) //Nombre remitente
+    doc.text("Nombre destinatario",134,247) //Nombre Destinatario
+    doc.text("Direccion",134,250) //Direccion destinatario
+    doc.text("Telefono",134,253) //telefono destinatario
+    doc.text("Ciudad",134,256) //ciudad destinatario
 
     doc.save('guía masiva.pdf');
  },
