@@ -474,7 +474,7 @@ export default {
       doc.setFontSize(6);
       doc.text("Fecha", 43, 36); //Fecha envío remitente
       doc.text("Lugar", 78, 36); //Lugar origen remitente
-  
+
       doc.text("Fecha", 120, 36); //Fecha envío destinatario
       doc.text("Lugar", 163, 36); //Lugar origen destinatario
       doc.setFontSize(7);
@@ -602,6 +602,7 @@ export default {
     },
 
     downloadMasiva() {
+      let cant=1;
       let tam = this.datas.length;
       console.log(tam);
       tam = tam - 1;
@@ -624,19 +625,21 @@ export default {
           doc.addImage(imgData, "JPEG", 3, 12, 102, 68);
           doc.setFont("arial"); //tipo de letra
           doc.addImage(img.src, "JPEG", 50, 16, 30, 10); //BARCODE
-          doc.setFontSize(4);
-          doc.text(this.datas[i].fecha, 93, 41); //Fecha
+          doc.setFontSize(6);
+          doc.text(this.datas[i].fecha, 92, 42); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 93, 48); //O.S
-          doc.text(this.datas[i].nip, 93, 55); //N.I.P
+          doc.text(cant+"", 93, 55); //N.I.P
           doc.setFontSize(6);
-          doc.text(this.datas[i].guie, 6, 45); //guía
-          doc.text(this.datas[i].ramitente, 6, 51); //NOmbre Remitente
+          doc.text(this.datas[i].guie, 5.5, 45); //guía
           doc.setFontSize(5);
-          doc.text(this.datas[i].destinatario, 6, 61); //NOmbre destinatario
-          doc.text(this.datas[i].direccion, 6, 63); //direccion destinatario
-          doc.text(this.datas[i].telefono, 6, 65); //telefono destinatario
-          doc.text(this.datas[i].ciudad, 6, 67); //ciudad destinatario
+          doc.text(this.datas[i].ramitente, 5.5, 51); //NOmbre Remitente
+          doc.text("01245", 11, 56.5); //codpostal Remitente
+          doc.text(this.datas[i].destinatario, 5.5, 61); //NOmbre destinatario
+          doc.text(this.datas[i].direccion, 5.5, 63); //direccion destinatario
+          doc.text(this.datas[i].telefono, 5.5, 65); //telefono destinatario
+          doc.text(this.datas[i].ciudad, 5.5, 67); //ciudad destinatario
+          doc.text("01245", 11, 71); //codpostal destinatario
 
           doc.setFontSize(8);
           doc.text(this.datas[i].ramitente, 30, 40); //Nombre remitente
@@ -644,7 +647,10 @@ export default {
           doc.text(this.datas[i].direccion, 30, 48); //Direccion destinatario
           doc.text(this.datas[i].telefono, 30, 51); //telefono destinatario
           doc.text(this.datas[i].ciudad, 30, 54); //ciudad destinatario
+          doc.setFontSize(7);
+          doc.text("012535", 78, 56.5); //Codpostal destinatario
           j++;
+          cant++;
           if (i == tam) {
             doc.save("guía masiva.pdf");
           }
@@ -653,27 +659,32 @@ export default {
           doc.addImage(imgData, "JPEG", 105, 12, 102, 68);
           doc.setFont("arial"); //tipo de letra
           doc.addImage(img.src, "JPEG", 155, 16, 30, 10); //BARCODE
-          doc.setFontSize(4);
-          doc.text(this.datas[i].fecha, 195, 41); //Fecha
+          doc.setFontSize(6);
+          doc.text(this.datas[i].fecha, 194, 42); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 195, 48); //O.S
-          doc.text(this.datas[i].nip, 195, 55); //N.I.P
+          doc.text(cant+"", 195, 55); //N.I.P
           doc.setFontSize(6);
-          doc.text(this.datas[i].guie, 110, 45); //guía
-          doc.text(this.datas[i].ramitente, 110, 51); //NOmbre Remitente
+          doc.text(this.datas[i].guie, 108, 45); //guía
           doc.setFontSize(5);
-          doc.text(this.datas[i].destinatario, 110, 61); //NOmbre destinatario
-          doc.text(this.datas[i].direccion, 110, 63); //direccion destinatario
-          doc.text(this.datas[i].telefono, 110, 65); //telefono destinatario
-          doc.text(this.datas[i].ciudad, 110, 67); //ciudad destinatario
+          doc.text(this.datas[i].ramitente, 108, 51); //NOmbre Remitente
+          doc.text("01245", 113.5, 56.5); //codpostal Remitente
+          doc.text(this.datas[i].destinatario, 108, 61); //NOmbre destinatario
+          doc.text(this.datas[i].direccion, 108, 63); //direccion destinatario
+          doc.text(this.datas[i].telefono, 108, 65); //telefono destinatario
+          doc.text(this.datas[i].ciudad, 108, 67); //ciudad destinatario
+          doc.text("01245", 113.5, 71); //codpostal destinatario
 
           doc.setFontSize(8);
-          doc.text(this.datas[i].ramitente, 134, 40); //Nombre remitente
-          doc.text(this.datas[i].destinatario, 134, 45); //Nombre Destinatario
-          doc.text(this.datas[i].direccion, 134, 48); //Direccion destinatario
-          doc.text(this.datas[i].telefono, 134, 51); //telefono destinatario
-          doc.text(this.datas[i].ciudad, 134, 54); //ciudad destinatario
+          doc.text(this.datas[i].ramitente, 133, 40); //Nombre remitente
+          doc.text(this.datas[i].destinatario, 133, 45); //Nombre Destinatario
+          doc.text(this.datas[i].direccion, 133, 48); //Direccion destinatario
+          doc.text(this.datas[i].telefono, 133, 51); //telefono destinatario
+          doc.text(this.datas[i].ciudad, 133, 54); //ciudad destinatario
+          doc.setFontSize(7);
+          doc.text("012535", 180, 56.5); //Codpostal destinatario
           j++;
+          cant++;
           if (i == tam) {
             doc.save("guía masiva.pdf");
           }
@@ -682,19 +693,21 @@ export default {
           doc.addImage(imgData, "JPEG", 3, 80, 102, 68);
           doc.setFont("arial"); //tipo de letra
           doc.addImage(img.src, "JPEG", 50, 83, 30, 10); //BARCODE
-          doc.setFontSize(4);
-          doc.text(this.datas[i].fecha, 93, 109); //Fecha
+          doc.setFontSize(6);
+          doc.text(this.datas[i].fecha, 92, 110); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 93, 116); //O.S
-          doc.text(this.datas[i].nip, 93, 123); //N.I.P
+          doc.text(cant+"", 93, 123); //N.I.P
           doc.setFontSize(6);
-          doc.text(this.datas[i].guie, 6, 113); //guía
-          doc.text(this.datas[i].ramitente, 6, 119); //NOmbre Remitente
+          doc.text(this.datas[i].guie, 5.5, 113); //guía
           doc.setFontSize(5);
-          doc.text(this.datas[i].destinatario, 6, 129); //NOmbre destinatario
-          doc.text(this.datas[i].destinatario, 6, 131); //direccion destinatario
-          doc.text(this.datas[i].telefono, 6, 133); //telefono destinatario
-          doc.text(this.datas[i].ciudad, 6, 135); //ciudad destinatario
+          doc.text(this.datas[i].ramitente, 5.5, 119); //NOmbre Remitente
+          doc.text("01245", 11, 124.5); //codpostal Remitente
+          doc.text(this.datas[i].destinatario, 5.5, 129); //NOmbre destinatario
+          doc.text(this.datas[i].destinatario, 5.5, 131); //direccion destinatario
+          doc.text(this.datas[i].telefono, 5.5, 133); //telefono destinatario
+          doc.text(this.datas[i].ciudad, 5.5, 135); //ciudad destinatario
+          doc.text("01245", 11, 139); //codpostal destinatario
 
           doc.setFontSize(8);
           doc.text(this.datas[i].ramitente, 30, 108); //Nombre remitente
@@ -702,7 +715,9 @@ export default {
           doc.text(this.datas[i].direccion, 30, 116); //Direccion destinatario
           doc.text(this.datas[i].telefono, 30, 119); //telefono destinatario
           doc.text(this.datas[i].ciudad, 30, 122); //ciudad destinatario
+          doc.text("012535", 78, 124.5); //Codpostal destinatario
           j++;
+          cant++;
           if (i == tam) {
             doc.save("guía masiva.pdf");
           }
@@ -711,27 +726,30 @@ export default {
           doc.addImage(imgData, "JPEG", 105, 80, 102, 68);
           doc.setFont("arial"); //tipo de letra
           doc.addImage(img.src, "JPEG", 155, 83, 30, 10); //BARCODE
-          doc.setFontSize(4);
-          doc.text(this.datas[i].fecha, 195, 109); //Fecha
+          doc.setFontSize(6);
+          doc.text(this.datas[i].fecha, 194, 110); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 195, 116); //O.S
-          doc.text(this.datas[i].nip, 195, 123); //N.I.P
+          doc.text(cant+"", 195, 123); //N.I.P
           doc.setFontSize(6);
-          doc.text(this.datas[i].guie, 110, 113); //guía
-          doc.text(this.datas[i].ramitente, 110, 119); //NOmbre Remitente
+          doc.text(this.datas[i].guie, 108, 113); //guía
           doc.setFontSize(5);
-          doc.text(this.datas[i].destinatario, 110, 129); //NOmbre destinatario
-          doc.text(this.datas[i].direccion, 110, 131); //direccion destinatario
-          doc.text(this.datas[i].telefono, 110, 133); //telefono destinatario
-          doc.text(this.datas[i].ciudad, 110, 135); //ciudad destinatario
-
+          doc.text(this.datas[i].ramitente, 108, 119); //NOmbre Remitente
+          doc.text("01245", 113.5, 124.5); //codpostal Remitente
+          doc.text(this.datas[i].destinatario, 108, 129); //NOmbre destinatario
+          doc.text(this.datas[i].direccion, 108, 131); //direccion destinatario
+          doc.text(this.datas[i].telefono, 108, 133); //telefono destinatario
+          doc.text(this.datas[i].ciudad, 108, 135); //ciudad destinatario
+          doc.text("01245", 113.5, 139); //codpostal destinatario
           doc.setFontSize(8);
-          doc.text(this.datas[i].ramitente, 134, 108); //Nombre remitente
-          doc.text(this.datas[i].destinatario, 134, 113); //Nombre Destinatario
-          doc.text(this.datas[i].direccion, 134, 116); //Direccion destinatario
-          doc.text(this.datas[i].telefono, 134, 119); //telefono destinatario
-          doc.text(this.datas[i].ciudad, 134, 122); //ciudad destinatario
+          doc.text(this.datas[i].ramitente, 133, 108); //Nombre remitente
+          doc.text(this.datas[i].destinatario, 133, 113); //Nombre Destinatario
+          doc.text(this.datas[i].direccion, 133, 116); //Direccion destinatario
+          doc.text(this.datas[i].telefono, 133, 119); //telefono destinatario
+          doc.text(this.datas[i].ciudad, 133, 122); //ciudad destinatario
+          doc.text("012535", 180, 124.5); //Codpostal destinatario
           j++;
+          cant++;
           if (i == tam) {
             doc.save("guía masiva.pdf");
           }
@@ -740,27 +758,30 @@ export default {
           doc.addImage(imgData, "JPEG", 3, 148, 102, 68);
           doc.setFont("arial"); //tipo de letra
           doc.addImage(img.src, "JPEG", 50, 151, 30, 10); //BARCODE
-          doc.setFontSize(4);
-          doc.text(this.datas[i].fecha, 93, 177); //Fecha
+          doc.setFontSize(6);
+          doc.text(this.datas[i].fecha, 92, 178); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 93, 184); //O.S
-          doc.text(this.datas[i].nip, 93, 191); //N.I.P
+          doc.text(cant+"", 93, 191); //N.I.P
           doc.setFontSize(6);
-          doc.text(this.datas[i].guie, 6, 181); //guía
-          doc.text(this.datas[i].ramitente, 6, 187); //NOmbre Remitente
+          doc.text(this.datas[i].guie, 5.5, 181); //guía
           doc.setFontSize(5);
-          doc.text(this.datas[i].destinatario, 6, 197); //NOmbre destinatario
-          doc.text(this.datas[i].direccion, 6, 199); //direccion destinatario
-          doc.text(this.datas[i].telefono, 6, 201); //telefono destinatario
-          doc.text(this.datas[i].ciudad, 6, 203); //ciudad destinatario
-
+          doc.text(this.datas[i].ramitente, 5.5, 187); //NOmbre Remitente
+          doc.text("01245", 11, 192.5); //codpostal Remitente
+          doc.text(this.datas[i].destinatario, 5.5, 197); //NOmbre destinatario
+          doc.text(this.datas[i].direccion, 5.5, 199); //direccion destinatario
+          doc.text(this.datas[i].telefono, 5.5, 201); //telefono destinatario
+          doc.text(this.datas[i].ciudad, 5.5, 203); //ciudad destinatario
+          doc.text("01245", 11, 207); //codpostal destinatario
           doc.setFontSize(8);
           doc.text(this.datas[i].ramitente, 30, 176); //Nombre remitente
           doc.text(this.datas[i].destinatario, 30, 181); //Nombre Destinatario
           doc.text(this.datas[i].direccion, 30, 184); //Direccion destinatario
           doc.text(this.datas[i].telefono, 30, 187); //telefono destinatario
           doc.text(this.datas[i].ciudad, 30, 190); //ciudad destinatario
+          doc.text("012535", 78, 192.5); //Codpostal destinatario
           j++;
+          cant++;
           if (i == tam) {
             doc.save("guía masiva.pdf");
           }
@@ -769,27 +790,30 @@ export default {
           doc.addImage(imgData, "JPEG", 105, 148, 102, 68);
           doc.setFont("arial"); //tipo de letra
           doc.addImage(img.src, "JPEG", 155, 150, 30, 10); //BARCODE
-          doc.setFontSize(4);
-          doc.text(this.datas[i].fecha, 195, 177); //Fecha
+          doc.setFontSize(6);
+          doc.text(this.datas[i].fecha, 194, 178); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 195, 184); //O.S
-          doc.text(this.datas[i].nip, 195, 191); //N.I.P
+          doc.text(cant+"", 195, 191); //N.I.P
           doc.setFontSize(6);
-          doc.text(this.datas[i].guie, 110, 181); //guía
-          doc.text(this.datas[i].ramitente, 110, 187); //NOmbre Remitente
+          doc.text(this.datas[i].guie, 108, 181); //guía
           doc.setFontSize(5);
-          doc.text(this.datas[i].destinatario, 110, 197); //NOmbre destinatario
-          doc.text(this.datas[i].direccion, 110, 199); //direccion destinatario
-          doc.text(this.datas[i].telefono, 110, 201); //telefono destinatario
-          doc.text(this.datas[i].ciudad, 110, 203); //ciudad destinatario
-
+          doc.text(this.datas[i].ramitente, 108, 187); //NOmbre Remitente
+          doc.text("01245", 113.5, 192.5); //codpostal Remitente
+          doc.text(this.datas[i].destinatario, 108, 197); //NOmbre destinatario
+          doc.text(this.datas[i].direccion, 108, 199); //direccion destinatario
+          doc.text(this.datas[i].telefono, 108, 201); //telefono destinatario
+          doc.text(this.datas[i].ciudad, 108, 203); //ciudad destinatario
+          doc.text("01245", 113.5, 207); //codpostal destinatario
           doc.setFontSize(8);
-          doc.text(this.datas[i].ramitente, 134, 176); //Nombre remitente
-          doc.text(this.datas[i].destinatario, 134, 181); //Nombre Destinatario
-          doc.text(this.datas[i].direccion, 134, 184); //Direccion destinatario
-          doc.text(this.datas[i].telefono, 134, 187); //telefono destinatario
-          doc.text(this.datas[i].ciudad, 134, 190); //ciudad destinatario
+          doc.text(this.datas[i].ramitente, 133, 176); //Nombre remitente
+          doc.text(this.datas[i].destinatario, 133, 181); //Nombre Destinatario
+          doc.text(this.datas[i].direccion, 133, 184); //Direccion destinatario
+          doc.text(this.datas[i].telefono, 133, 187); //telefono destinatario
+          doc.text(this.datas[i].ciudad, 133, 190); //ciudad destinatario
+          doc.text("012535", 180, 192.5); //Codpostal destinatario
           j++;
+          cant++;
           if (i == tam) {
             doc.save("guía masiva.pdf");
           }
@@ -798,27 +822,30 @@ export default {
           doc.addImage(imgData, "JPEG", 3, 216, 102, 68);
           doc.setFont("arial"); //tipo de letra
           doc.addImage(img.src, "JPEG", 50, 220, 30, 10); //BARCODE
-          doc.setFontSize(4);
-          doc.text(this.datas[i].fecha, 93, 246); //Fecha
+          doc.setFontSize(6);
+          doc.text(this.datas[i].fecha, 92, 246); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 93, 253); //O.S
-          doc.text(this.datas[i].nip, 93, 260); //N.I.P
+          doc.text(cant+"", 93, 260); //N.I.P
           doc.setFontSize(6);
-          doc.text(this.datas[i].guie, 6, 250); //guía
-          doc.text(this.datas[i].ramitente, 6, 256); //NOmbre Remitente
+          doc.text(this.datas[i].guie, 5.5, 250); //guía
           doc.setFontSize(5);
-          doc.text(this.datas[i].destinatario, 6, 266); //NOmbre destinatario
-          doc.text(this.datas[i].direccion, 6, 268); //direccion destinatario
-          doc.text(this.datas[i].telefono, 6, 270); //telefono destinatario
-          doc.text(this.datas[i].ciudad, 6, 272); //ciudad destinatario
-
+          doc.text(this.datas[i].ramitente, 5.5, 256); //NOmbre Remitente
+          doc.text("01245", 11, 261); //codpostal Remitente
+          doc.text(this.datas[i].destinatario, 5.5, 266); //NOmbre destinatario
+          doc.text(this.datas[i].direccion, 5.5, 268); //direccion destinatario
+          doc.text(this.datas[i].telefono, 5.5, 270); //telefono destinatario
+          doc.text(this.datas[i].ciudad, 5.5, 272); //ciudad destinatario
+          doc.text("01245", 11, 275.5); //codpostal destinatario
           doc.setFontSize(8);
           doc.text(this.datas[i].ramitente, 30, 245); //Nombre remitente
           doc.text(this.datas[i].destinatario, 30, 249); //Nombre Destinatario
           doc.text(this.datas[i].direccion, 30, 252); //Direccion destinatario
           doc.text(this.datas[i].telefono, 30, 255); //telefono destinatario
           doc.text(this.datas[i].ciudad, 30, 258); //ciudad destinatario
+          doc.text("012535", 78, 260.5); //Codpostal destinatario
           j++;
+          cant++;
           if (i == tam) {
             doc.save("guía masiva.pdf");
           }
@@ -827,26 +854,29 @@ export default {
           doc.addImage(imgData, "JPEG", 105, 216, 102, 68);
           doc.setFont("arial"); //tipo de letra
           doc.addImage(img.src, "JPEG", 155, 220, 30, 10); //BARCODE
-          doc.setFontSize(4);
-          doc.text(this.datas[i].fecha, 195, 246); //Fecha
+          doc.setFontSize(6);
+          doc.text(this.datas[i].fecha, 194, 246); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 195, 253); //O.S
-          doc.text(this.datas[i].nip, 195, 260); //N.I.P
+          doc.text(cant+"", 195, 260); //N.I.P
           doc.setFontSize(6);
-          doc.text(this.datas[i].guie, 110, 250); //guía
-          doc.text(this.datas[i].ramitente, 110, 256); //NOmbre Remitente
+          doc.text(this.datas[i].guie, 108, 250); //guía
           doc.setFontSize(5);
-          doc.text(this.datas[i].destinatario, 110, 266); //NOmbre destinatario
-          doc.text(this.datas[i].direccion, 110, 268); //direccion destinatario
-          doc.text(this.datas[i].telefono, 110, 270); //telefono destinatario
-          doc.text(this.datas[i].ciudad, 110, 272); //ciudad destinatario
-
+          doc.text(this.datas[i].ramitente, 108, 256); //NOmbre Remitente
+          doc.text("01245", 113.5, 261); //codpostal Remitente
+          doc.text(this.datas[i].destinatario, 108, 266); //NOmbre destinatario
+          doc.text(this.datas[i].direccion, 108, 268); //direccion destinatario
+          doc.text(this.datas[i].telefono, 108, 270); //telefono destinatario
+          doc.text(this.datas[i].ciudad, 108, 272); //ciudad destinatario
+          doc.text("01245", 113.5, 275.5); //codpostal destinatario
           doc.setFontSize(8);
-          doc.text(this.datas[i].ramitente, 134, 245); //Nombre remitente
-          doc.text(this.datas[i].destinatario, 134, 249); //Nombre Destinatario
-          doc.text(this.datas[i].direccion, 134, 252); //Direccion destinatario
-          doc.text(this.datas[i].telefono, 134, 255); //telefono destinatario
-          doc.text(this.datas[i].ciudad, 134, 258); //ciudad destinatario
+          doc.text(this.datas[i].ramitente, 133, 245); //Nombre remitente
+          doc.text(this.datas[i].destinatario, 133, 249); //Nombre Destinatario
+          doc.text(this.datas[i].direccion, 133, 252); //Direccion destinatario
+          doc.text(this.datas[i].telefono, 133, 255); //telefono destinatario
+          doc.text(this.datas[i].ciudad, 133, 258); //ciudad destinatario
+          doc.text("012535", 180, 260.5); //Codpostal destinatario
+          cant++;
           j = 0;
           page++;
           if (i == tam) {
