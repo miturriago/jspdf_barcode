@@ -893,11 +893,18 @@ export default {
       var imgData = logo;
 
       var doc = new jsPDF();
-
-      doc.addImage(imgData, "JPEG", 45, 5, 20, 13);
+      //Encabezado
+      doc.addImage(imgData, "JPEG", 40, 5, 20, 13);//logo
+      doc.setFontSize("12")
+      doc.text("INFORME DE GESTIÓN",75,13)
+      doc.text("No.",140,13)
+      doc.addImage(img.src, "JPEG",147, 5, 35, 10); //BARCODE
+      doc.setFontSize("8")
+      doc.text("18/01/2020",175,24)
+      //Info
       doc.roundedRect(15, 25, 180, 20, 1.5, 1.5);//Rectángulo externo
       doc.roundedRect(16, 26, 178, 18, 1.5, 1.5);//Rectánguo interno
-      doc.setFont("arial"); //tipo de letra
+      
       doc.save("informe.pdf");
     }
   }
