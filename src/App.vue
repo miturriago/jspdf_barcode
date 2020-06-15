@@ -926,8 +926,11 @@ export default {
         y = 63,
         fil = 0,
         col = 0,
-        cant = 233,
-        efec = 0;
+        cant = 233, //Cantidad de efectivas
+        cantNov = 33, //Cantidad de novedades
+        efec = 0,
+        nov = 0;
+      //Efectivas
       if ((cant / 8) % 2 != 0) {
         fil = Math.trunc(cant / 8) + 1;
       } else {
@@ -943,8 +946,38 @@ export default {
           j++;
           efec++;
         }
-        y = y + 3.5;
+        y = y + 3;
       }
+      doc.setFontSize("8");
+      y = y + 15;
+      doc.text("Novedades: ", 15, y);
+      doc.text("33", 30, y); //Cantidad de novedades
+      //Novedades
+      if ((cantNov / 8) % 2 != 0) {
+        fil = Math.trunc(cantNov / 8) + 1;
+      } else {
+        fil = Math.trunc(cantNov / 8);
+      }
+      y = y + 6;
+      doc.setFontSize("7");
+      for (var i = 0; i < fil; i++) {
+        x = 15;
+        j = 0;
+        while (j < 8 && nov < cantNov) {
+          doc.text("1234567890123", x, y);
+          x = x + 23;
+          j++;
+          nov++;
+        }
+        y = y + 3;
+      }
+
+      //FIRMAS
+      doc.setFontSize(8)
+      doc.line(38, 277, 70, 277); // horizontal line
+      doc.text("Dpto. de Operaciones",38,280)
+      doc.line(137, 277, 170, 277); // horizontal line
+      doc.text("Firma y sello del cliente",137,280)
 
       doc.save("informe.pdf");
     }
