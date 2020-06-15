@@ -894,29 +894,58 @@ export default {
 
       var doc = new jsPDF();
       //Encabezado
-      doc.addImage(imgData, "JPEG", 40, 5, 20, 13);//logo
-      doc.setFontSize("12")
-      doc.text("INFORME DE GESTIÓN",75,13)
-      doc.text("No.",140,13)
-      doc.addImage(img.src, "JPEG",147, 5, 35, 10); //BARCODE
-      doc.setFontSize("8")
-      doc.text("18/01/2020",175,24)
+      doc.addImage(imgData, "JPEG", 40, 5, 20, 13); //logo
+      doc.setFontSize("12");
+      doc.text("INFORME DE GESTIÓN", 75, 13);
+      doc.text("No.", 140, 13);
+      doc.addImage(img.src, "JPEG", 147, 5, 35, 10); //BARCODE
+      doc.setFontSize("8");
+      doc.text("18/01/2020", 175, 24);
       //Info
-      doc.roundedRect(15, 25, 180, 20, 1.5, 1.5);//Rectángulo externo
-      doc.roundedRect(16, 26, 178, 18, 1.5, 1.5);//Rectánguo interno
-      doc.setFontSize("11")
-      doc.text("CLIENTE:",19,33)
-      doc.text("DIRECCIÓN:",19,40)
-      doc.text("CENTRO DE COSTO:",115,33)
-      doc.text("CIUDAD:",115,40)
-      doc.text("TEL:",163,40)
-      doc.setFontSize("9")
-      doc.text("VIVA HOME",40,33)//compañia
-      doc.text("DIRECCION",44,40)//direccion
-      doc.text("MERCADEO",155,33)//centro de costo
-      doc.text("BARRANQUILLA",132,40)//ciudad
-      doc.text("3281432098",173,40)//tel
-      
+      doc.roundedRect(15, 25, 180, 20, 1.5, 1.5); //Rectángulo externo
+      doc.roundedRect(16, 26, 178, 18, 1.5, 1.5); //Rectánguo interno
+      doc.setFontSize("11");
+      doc.text("CLIENTE:", 19, 33);
+      doc.text("DIRECCIÓN:", 19, 40);
+      doc.text("CENTRO DE COSTO:", 115, 33);
+      doc.text("CIUDAD:", 115, 40);
+      doc.text("TEL:", 163, 40);
+      doc.setFontSize("9");
+      doc.text("VIVA HOME", 40, 33); //compañia
+      doc.text("DIRECCION", 44, 40); //direccion
+      doc.text("MERCADEO", 155, 33); //centro de costo
+      doc.text("BARRANQUILLA", 132, 40); //ciudad
+      doc.text("3281432098", 173, 40); //tel
+
+      //DATOS
+      doc.setFontSize("8");
+      doc.text("Entregas efectivas: ", 15, 57);
+      doc.text("229", 45, 57); //Cantidad entregas efectivas
+      let j = 0,
+        x = 15,
+        y = 63,
+        fil = 0,
+        col = 0,
+        cant = 233,
+        efec = 0;
+      if ((cant / 8) % 2 != 0) {
+        fil = Math.trunc(cant / 8) + 1;
+      } else {
+        fil = Math.trunc(cant / 8);
+      }
+      doc.setFontSize("7");
+      for (var i = 0; i < fil; i++) {
+        x = 15;
+        j = 0;
+        while (j < 8 && efec < cant) {
+          doc.text("1234567890123", x, y);
+          x = x + 23;
+          j++;
+          efec++;
+        }
+        y = y + 3.5;
+      }
+
       doc.save("informe.pdf");
     }
   }
