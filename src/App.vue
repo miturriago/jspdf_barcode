@@ -1,10 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
       <button @click="download">Download PDF</button>
       <button @click="downloadMasiva">Download Masiva</button>
+      <button @click="informe">Informes</button>
     </div>
     <div ref="content">
       <img id="code39" v-if="code==null" />
@@ -15,7 +14,7 @@
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import { imgDataMasivo, credito_contado } from "./masivo";
-import { imgMasivo } from "./pdf";
+import { logo } from "./logo";
 export default {
   data() {
     return {
@@ -602,7 +601,7 @@ export default {
     },
 
     downloadMasiva() {
-      let cant=1;
+      let cant = 1;
       let tam = this.datas.length;
       console.log(tam);
       tam = tam - 1;
@@ -629,7 +628,7 @@ export default {
           doc.text(this.datas[i].fecha, 92, 42); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 93, 48); //O.S
-          doc.text(cant+"", 93, 55); //N.I.P
+          doc.text(cant + "", 93, 55); //N.I.P
           doc.setFontSize(6);
           doc.text(this.datas[i].guie, 5.5, 45); //guía
           doc.setFontSize(5);
@@ -663,7 +662,7 @@ export default {
           doc.text(this.datas[i].fecha, 194, 42); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 195, 48); //O.S
-          doc.text(cant+"", 195, 55); //N.I.P
+          doc.text(cant + "", 195, 55); //N.I.P
           doc.setFontSize(6);
           doc.text(this.datas[i].guie, 108, 45); //guía
           doc.setFontSize(5);
@@ -697,7 +696,7 @@ export default {
           doc.text(this.datas[i].fecha, 92, 110); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 93, 116); //O.S
-          doc.text(cant+"", 93, 123); //N.I.P
+          doc.text(cant + "", 93, 123); //N.I.P
           doc.setFontSize(6);
           doc.text(this.datas[i].guie, 5.5, 113); //guía
           doc.setFontSize(5);
@@ -730,7 +729,7 @@ export default {
           doc.text(this.datas[i].fecha, 194, 110); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 195, 116); //O.S
-          doc.text(cant+"", 195, 123); //N.I.P
+          doc.text(cant + "", 195, 123); //N.I.P
           doc.setFontSize(6);
           doc.text(this.datas[i].guie, 108, 113); //guía
           doc.setFontSize(5);
@@ -762,7 +761,7 @@ export default {
           doc.text(this.datas[i].fecha, 92, 178); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 93, 184); //O.S
-          doc.text(cant+"", 93, 191); //N.I.P
+          doc.text(cant + "", 93, 191); //N.I.P
           doc.setFontSize(6);
           doc.text(this.datas[i].guie, 5.5, 181); //guía
           doc.setFontSize(5);
@@ -794,7 +793,7 @@ export default {
           doc.text(this.datas[i].fecha, 194, 178); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 195, 184); //O.S
-          doc.text(cant+"", 195, 191); //N.I.P
+          doc.text(cant + "", 195, 191); //N.I.P
           doc.setFontSize(6);
           doc.text(this.datas[i].guie, 108, 181); //guía
           doc.setFontSize(5);
@@ -826,7 +825,7 @@ export default {
           doc.text(this.datas[i].fecha, 92, 246); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 93, 253); //O.S
-          doc.text(cant+"", 93, 260); //N.I.P
+          doc.text(cant + "", 93, 260); //N.I.P
           doc.setFontSize(6);
           doc.text(this.datas[i].guie, 5.5, 250); //guía
           doc.setFontSize(5);
@@ -858,7 +857,7 @@ export default {
           doc.text(this.datas[i].fecha, 194, 246); //Fecha
           doc.setFontSize(5);
           doc.text(this.datas[i].os, 195, 253); //O.S
-          doc.text(cant+"", 195, 260); //N.I.P
+          doc.text(cant + "", 195, 260); //N.I.P
           doc.setFontSize(6);
           doc.text(this.datas[i].guie, 108, 250); //guía
           doc.setFontSize(5);
@@ -884,6 +883,22 @@ export default {
           }
         }
       }
+    },
+    informe() {
+      JsBarcode("#code39", "12345678901237", {
+        format: "CODE39"
+      });
+
+      const img = document.querySelector("img#code39");
+      var imgData = logo;
+
+      var doc = new jsPDF();
+
+      doc.addImage(imgData, "JPEG", 45, 5, 20, 13);
+      doc.roundedRect(15, 25, 180, 20, 1.5, 1.5);//Rectángulo externo
+      doc.roundedRect(16, 26, 178, 18, 1.5, 1.5);//Rectánguo interno
+      doc.setFont("arial"); //tipo de letra
+      doc.save("informe.pdf");
     }
   }
 };
