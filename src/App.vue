@@ -5,6 +5,8 @@
       <button @click="downloadMasiva">Download Masiva</button>
       <button @click="informe">Informes</button>
       <button @click="docLib">Doc. Liberación</button>
+      <button @click="loteEntrega">Lote entrega</button>
+      <button @click="manifiesto">Manifiesto</button>
     </div>
     <div ref="content">
       <img id="code39" v-if="code==null" />
@@ -1043,6 +1045,130 @@ export default {
       doc.line(137, 277, 170, 277); // horizontal line
       doc.text("Quien entrega" + "\n" + "Los envíos", 137, 280);
       doc.save("doclib.pdf");
+    },
+    loteEntrega() {
+      var imgData = logo;
+
+      var doc = new jsPDF();
+      //Encabezado
+      doc.addImage(imgData, "JPEG", 40, 5, 20, 13); //logo
+      doc.setFontSize("12");
+      doc.text("LOTE DE ENTREGA", 75, 13);
+      doc.text("No.", 144, 13);
+      doc.text("L-001", 152, 13); //codigo
+      //Info
+      doc.setFontSize("10");
+      doc.text("Fecha:", 19, 33);
+      doc.text("Operador/Mensajero:", 55, 33);
+      doc.text("Generador por:", 100, 33);
+      doc.text("Cant:", 160, 33);
+      //datos info
+      doc.setFontSize("9");
+      doc.text("28/01/2020", 32, 33); //Fecha
+      doc.text("03", 90, 33); //cod Mensajero
+      doc.text("us121323", 130, 33); //Usuario
+      doc.text("15000", 180, 33); //cantidad
+
+      //DATOS
+      doc.setFontSize("8");
+      doc.text("Guías: ", 15, 57);
+      let j = 0,
+        x = 15,
+        y = 63,
+        fil = 0,
+        col = 0,
+        cant = 233, //Cantidad de efectivas
+        cantNov = 33, //Cantidad de novedades
+        efec = 0,
+        nov = 0;
+      //Efectivas
+      if ((cant / 8) % 2 != 0) {
+        fil = Math.trunc(cant / 8) + 1;
+      } else {
+        fil = Math.trunc(cant / 8);
+      }
+      doc.setFontSize("7");
+      for (var i = 0; i < fil; i++) {
+        x = 15;
+        j = 0;
+        while (j < 8 && efec < cant) {
+          doc.text("1234567890123", x, y);
+          x = x + 23;
+          j++;
+          efec++;
+        }
+        y = y + 3;
+      }
+
+      //FIRMAS
+      doc.setFontSize(8);
+      doc.line(38, 277, 70, 277); // horizontal line
+      doc.text("Generador del " + "\n" + "Lote de entrega", 38, 280);
+      doc.line(137, 277, 170, 277); // horizontal line
+      doc.text("Quien entrega" + "\n" + "las pruebas de entrega", 137, 280);
+      doc.save("loteEntrega.pdf");
+    },
+    manifiesto() {
+      var imgData = logo;
+
+      var doc = new jsPDF();
+      //Encabezado
+      doc.addImage(imgData, "JPEG", 40, 5, 20, 13); //logo
+      doc.setFontSize("12");
+      doc.text("MANIFIESTO", 75, 13);
+      doc.text("No.", 144, 13);
+      doc.text("L-001", 152, 13); //codigo
+      //Info
+      doc.setFontSize("10");
+      doc.text("Fecha:", 19, 33);
+      doc.text("Operador/Mensajero:", 55, 33);
+      doc.text("Generador por:", 100, 33);
+      doc.text("Cant:", 160, 33);
+      //datos info
+      doc.setFontSize("9");
+      doc.text("28/01/2020", 32, 33); //Fecha
+      doc.text("03", 90, 33); //cod Mensajero
+      doc.text("us121323", 130, 33); //Usuario
+      doc.text("15000", 180, 33); //cantidad
+
+      //DATOS
+      doc.setFontSize("8");
+      doc.text("Guías: ", 15, 57);
+      let j = 0,
+        x = 15,
+        y = 63,
+        fil = 0,
+        col = 0,
+        cant = 233, //Cantidad de efectivas
+        cantNov = 33, //Cantidad de novedades
+        efec = 0,
+        nov = 0;
+      //Efectivas
+      if ((cant / 8) % 2 != 0) {
+        fil = Math.trunc(cant / 8) + 1;
+      } else {
+        fil = Math.trunc(cant / 8);
+      }
+      doc.setFontSize("7");
+      for (var i = 0; i < fil; i++) {
+        x = 15;
+        j = 0;
+        while (j < 8 && efec < cant) {
+          doc.text("1234567890123", x, y);
+          x = x + 23;
+          j++;
+          efec++;
+        }
+        y = y + 3;
+      }
+
+      //FIRMAS
+      doc.setFontSize(8);
+      doc.line(38, 277, 70, 277); // horizontal line
+      doc.text("Generador del " + "\n" + "Manifiesto", 38, 280);
+      doc.line(137, 277, 170, 277); // horizontal line
+      doc.text("Quien recibe" + "\n" + "el manifiesto", 137, 280);
+      doc.save("manifiesto.pdf");
     }
   }
 };
