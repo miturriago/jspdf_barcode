@@ -463,50 +463,149 @@ export default {
 
       const img = document.querySelector("img#code39");
       var imgData = credito_contado;
-
+      var imgDat = logo;
       var doc = new jsPDF();
-
-      doc.addImage(imgData, "JPEG", 5, 15, 205, 270);
       doc.setFont("arial"); //tipo de letra
-      //********************Destinatario*************************
-      doc.addImage(img.src, "JPEG", 130, 16, 40, 15); //BARCODE
-      //Tipo pago
+      doc.addImage(imgDat, "JPEG", 40, 5, 15, 8); //logo
       doc.setFontSize(8);
-      doc.text("Crédito", 94, 30); //Tipo pago
+      doc.text("Mensajería & Carga", 36, 16);
       doc.setFontSize(6);
-      doc.text("Fecha", 43, 36); //Fecha envío remitente
-      doc.text("Lugar", 78, 36); //Lugar origen remitente
+      doc.setFontType("bold");
+      doc.text("Lic. MINTIC RPOSTAL 0356", 35, 18);
+      doc.text("Resol. 876 del 29/04/2014", 36, 20);
+      doc.text("Res. MinTransporte No. 0067 de 01/09/2016", 30, 22);
+      doc.text("Calle 63B No. 31 - 102", 37, 24);
+      doc.text("www.libertadexpress.com", 35, 26);
+      doc.text("Factura de" + "\n" + "  Venta No", 125, 16);
+      doc.setFontType("");
+      //doc.addImage(imgData, "JPEG", 5, 15, 205, 270);
+      //********************Destinatario*************************
+      doc.addImage(img.src, "JPEG", 145, 6, 40, 15); //BARCODE
+      //Tipo pago
+      doc.rect(13, 28, 187, 63); //Rectángulo principal
+      doc.rect(14, 33.5, 185, 23); //rectángulo de abajo
+      doc.rect(14, 58, 34, 16); //FIrma del remitente
+      doc.rect(49, 58, 34, 32); //info envío
+      doc.rect(50, 59, 32, 5); //Unidades
+      doc.rect(50, 65, 32, 5); //Peso
+      doc.rect(50, 71, 32, 5); //Volumen
+      doc.rect(50, 77, 32, 5); //Vr. Asegurado
+      doc.rect(50, 83, 32, 5); //Vr. TOtal
+      doc.rect(84, 58, 34, 23); //Recibí a satisfación
+      doc.rect(119, 58, 30, 32); //Observaciones
+      doc.rect(151, 60, 24, 21); //intento de entrega
 
-      doc.text("Fecha", 120, 36); //Fecha envío destinatario
-      doc.text("Lugar", 163, 36); //Lugar origen destinatario
+      doc.setFontSize(8);
+      doc.text("Crédito", 94, 26); //Tipo pago
+      doc.setFontSize(6);
+      doc.rect(15, 29, 29, 4, "F"); // filled square fecha
+      doc.rect(15, 34, 3, 21, "F"); // filled square remitente
+      doc.rect(105, 34, 3, 21, "F"); // filled square destinatario
+      doc.rect(65, 29, 15, 4, "F"); // filled square origen
+      doc.rect(105, 29, 15, 4, "F"); // filled square servicio
+      doc.rect(155, 29, 15, 4, "F"); // filled square destino
+      doc.rect(77, 51, 12, 4, "F"); // filled square postalOrig
+      doc.rect(169, 51, 12, 4, "F"); // filled square postalDest
+      doc.rect(151, 57, 48, 3, "F"); // filled square IntentoEntrega
+      doc.setFont(); //tipo de letra
+      doc.setFontSize(8);
+      doc.setTextColor(255);
+      doc.setFontType("bold");
+      doc.text("Fecha y hora de envío", 16, 32);
+      doc.text("Origen", 66, 32);
+      doc.text("Servicio", 106, 32);
+      doc.text("Destino", 156, 32);
+      doc.setFontSize(6);
+      doc.text("REMITENTE", 17, 52, 90);
+      doc.text("DESTINATARIO", 107, 53, 90);
+      doc.setFontSize(5);
+      doc.text("COD.POSTAL", 78, 54);
+      doc.text("COD.POSTAL", 169, 54);
+      doc.text("INTENTO DE ENTREGA", 165, 59);
+      doc.setTextColor(0);
+      doc.setFontSize(4);
+      doc.text(
+        "El usuario deja expresa constancia que tuvo" +
+          "\n" +
+          "conocimiento del contrato que se encuentra publicado" +
+          "\n" +
+          "en la página web: www.libertadexpres.com y en las" +
+          "\n" +
+          "carteleras ubicadas en los puntos de ventas, que" +
+          "\n" +
+          "regula el servicio acordado entre las partes, cuyo" +
+          "\n" +
+          "contenido clausular acepta expresamente con la" +
+          "\n" +
+          "suscripción de este documento. Para la presentación " +
+          "\n" +
+          "de P.Q.R. remítase a nuestra página web " +
+          "\n" +
+          "www.libertadexpress.com o al PBX (5) 3317700",
+        15,
+        76
+      );
+      doc.text(
+        "Porque de tal manera amó Dios al mundo, que ha dado " +
+          "\n" +
+          "a su hijo unigénito para que todo aquel que en " +
+          "\n" +
+          "Él cree, no se pierda más tenga vida eterna.",
+        84,
+        85
+      );
+      doc.setFontSize(6);
+      doc.text("Firma del remitente", 15, 60);
+      doc.text("Unidades:", 51, 61);
+      doc.text("Peso:", 51, 67);
+      doc.text("Volumen:", 51, 73);
+      doc.text("Vr. Asegurado:", 51, 79);
+      doc.text("Vr. Total:", 51, 85);
+      doc.text("Recibí a satisfación", 85, 60);
+      doc.text("Observaciones en la entrega:", 120, 60);
+      doc.setFontType("");
+      doc.setFontSize(8);
+      doc.text("Fecha", 47, 32); //Fecha envío remitente
+      doc.text("Lugar", 82, 32); //Lugar origen remitente
+
+      doc.text("Servicio", 123, 32); //Fecha envío destinatario
+      doc.text("Destino", 175, 32); //Lugar origen destinatario
       doc.setFontSize(7);
-      doc.text("OS", 175, 32); //OS
+      doc.text("OS", 175, 27); //OS
 
-      doc.text("Nombre remitente", 23, 42); //Nombre remitente
-      doc.text("NIT", 23, 45); //  NIT remitente
-      doc.text("direccion", 23, 48); //direccion remitente
-      doc.text("teléfono", 23, 51); //telefono remitente
-      doc.text("lugar", 23, 54); //lugar remitente
-      doc.text("cod postal", 92, 58); //Codigo postal remitente
+      doc.text("Nombre remitente", 23, 38); //Nombre remitente
+      doc.text("NIT", 23, 41); //  NIT remitente
+      doc.text("direccion", 23, 44); //direccion remitente
+      doc.text("teléfono", 23, 47); //telefono remitente
+      doc.text("lugar", 23, 50); //lugar remitente
+      doc.text("cod postal", 90, 54); //Codigo postal remitente
 
-      doc.text("Nombre destinatario", 110, 42); //Nombre destinatario
-      doc.text("NIT", 110, 45); //  NIT destinatario
-      doc.text("direccion", 110, 48); //direccion destinatario
-      doc.text("teléfono", 110, 51); //telefono destinatario
-      doc.text("lugar", 110, 54); //lugar destinatario
-      doc.text("cod postal", 180, 58); //Codigo postal destinatario
+      doc.text("Nombre destinatario", 110, 38); //Nombre destinatario
+      doc.text("NIT", 110, 41); //  NIT destinatario
+      doc.text("direccion", 110, 44); //direccion destinatario
+      doc.text("teléfono", 110, 47); //telefono destinatario
+      doc.text("lugar", 110, 50); //lugar destinatario
+      doc.text("cod postal", 182, 54); //Codigo postal destinatario
+      doc.line(90, 81, 90, 78); // vertical line
+      doc.text("Hora", 92, 76);
+      doc.line(98, 81, 98, 78); // vertical line
+      doc.text("Día", 100, 76);
+      doc.line(105, 81, 105, 78); // vertical line
+      doc.text("Mes", 106, 76);
+      doc.line(111, 81, 111, 78); // vertical line
+      doc.text("Año", 112, 76);
 
       //datos envío
       doc.setFontSize(6);
-      doc.text("1", 62, 66); //cantidad
-      doc.text("1", 62, 71); //peso
-      doc.text("1", 62, 76); //volumen
-      doc.text("1", 62, 81); //valor asegurado
-      doc.text("1", 62, 86); //valor social
+      doc.text("1", 65, 63); //cantidad
+      doc.text("1", 65, 69); //peso
+      doc.text("1", 65, 75); //volumen
+      doc.text("1", 65, 81); //valor asegurado
+      doc.text("1", 65, 87); //valor social
 
       //Observación
       doc.setFontSize(5);
-      doc.text("Observaciones", 119, 66); //Observaciones
+      doc.text("Observaciones", 120, 63); //Observaciones
 
       //********************Prueba de entrega*************************
       doc.addImage(img.src, "JPEG", 130, 105, 40, 15); //BARCODE
@@ -592,7 +691,6 @@ export default {
 
       doc.save("guía crédito_contado.pdf");
       this.code = "creado";
-      vm.$forceUpdate();
     },
     print() {
       let datas = this.datas;
@@ -978,9 +1076,9 @@ export default {
       //FIRMAS
       doc.setFontSize(8);
       doc.line(38, 277, 70, 277); // horizontal line
-      doc.text("Dpto. de Operaciones", 38, 280);
+      doc.text("Dpto. de Operaciones", 38, 280, "center");
       doc.line(137, 277, 170, 277); // horizontal line
-      doc.text("Firma y sello del cliente", 137, 280);
+      doc.text("Firma y sello del cliente", 137, 280, "center");
 
       doc.save("informe.pdf");
     },
@@ -1041,9 +1139,14 @@ export default {
       //FIRMAS
       doc.setFontSize(8);
       doc.line(38, 277, 70, 277); // horizontal line
-      doc.text("Generador del " + "\n" + "documento de liberacion", 38, 280);
+      doc.text(
+        "Generador del " + "\n" + "documento de liberacion",
+        38,
+        280,
+        "center"
+      );
       doc.line(137, 277, 170, 277); // horizontal line
-      doc.text("Quien entrega" + "\n" + "Los envíos", 137, 280);
+      doc.text("Quien entrega" + "\n" + "Los envíos", 137, 280, "center");
       doc.save("doclib.pdf");
     },
     loteEntrega() {
@@ -1165,9 +1268,9 @@ export default {
       //FIRMAS
       doc.setFontSize(8);
       doc.line(38, 277, 70, 277); // horizontal line
-      doc.text("Generador del " + "\n" + "Manifiesto", 38, 280);
+      doc.text("Generador del " + "\n" + "Manifiesto", 38, 280, "center");
       doc.line(137, 277, 170, 277); // horizontal line
-      doc.text("Quien recibe" + "\n" + "el manifiesto", 137, 280);
+      doc.text("Quien recibe" + "\n" + "el manifiesto", 137, 280, "center");
       doc.save("manifiesto.pdf");
     }
   }
