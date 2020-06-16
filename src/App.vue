@@ -18,6 +18,7 @@ import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import { imgDataMasivo, credito_contado } from "./masivo";
 import { logo } from "./logo";
+import { entrega } from "./intEntrega";
 export default {
   data() {
     return {
@@ -460,235 +461,173 @@ export default {
       JsBarcode("#code39", "12345678901237", {
         format: "CODE39"
       });
-
+      let y5 = 5,
+        y16 = 16,
+        yRP = 28,
+        yRS = 33.5,
+        y58 = 58,
+        y26 = 26;
       const img = document.querySelector("img#code39");
-      var imgData = credito_contado;
       var imgDat = logo;
+      var imgData = entrega;
       var doc = new jsPDF();
-      doc.setFont("arial"); //tipo de letra
-      doc.addImage(imgDat, "JPEG", 40, 5, 15, 8); //logo
-      doc.setFontSize(8);
-      doc.text("Mensajería & Carga", 36, 16);
-      doc.setFontSize(6);
-      doc.setFontType("bold");
-      doc.text("Lic. MINTIC RPOSTAL 0356", 35, 18);
-      doc.text("Resol. 876 del 29/04/2014", 36, 20);
-      doc.text("Res. MinTransporte No. 0067 de 01/09/2016", 30, 22);
-      doc.text("Calle 63B No. 31 - 102", 37, 24);
-      doc.text("www.libertadexpress.com", 35, 26);
-      doc.text("Factura de" + "\n" + "  Venta No", 125, 16);
-      doc.setFontType("");
-      //doc.addImage(imgData, "JPEG", 5, 15, 205, 270);
-      //********************Destinatario*************************
-      doc.addImage(img.src, "JPEG", 145, 6, 40, 15); //BARCODE
-      //Tipo pago
-      doc.rect(13, 28, 187, 63); //Rectángulo principal
-      doc.rect(14, 33.5, 185, 23); //rectángulo de abajo
-      doc.rect(14, 58, 34, 16); //FIrma del remitente
-      doc.rect(49, 58, 34, 32); //info envío
-      doc.rect(50, 59, 32, 5); //Unidades
-      doc.rect(50, 65, 32, 5); //Peso
-      doc.rect(50, 71, 32, 5); //Volumen
-      doc.rect(50, 77, 32, 5); //Vr. Asegurado
-      doc.rect(50, 83, 32, 5); //Vr. TOtal
-      doc.rect(84, 58, 34, 23); //Recibí a satisfación
-      doc.rect(119, 58, 30, 32); //Observaciones
-      doc.rect(151, 60, 24, 21); //intento de entrega
+      for (var j = 0; j < 3; j++) {
+        doc.setFont("arial"); //tipo de letra
+        doc.addImage(imgDat, "JPEG", 40, y5, 15, 8); //logo
+        for (var i = 0; i < 7; i++) {
+          if (i == 0) {
+            doc.setFontSize(8);
+            doc.text("Mensajería & Carga", 36, y16);
+            doc.setFontSize(6);
+            doc.text("Factura de" + "\n" + "  Venta No", 125, y16);
+            doc.setFontType("bold");
+          } else if (i == 1) {
+            doc.text("Lic. MINTIC RPOSTAL 0356", 35, y16 + 2);
+          } else if (i == 2) {
+            doc.text("Resol. 876 del 29/04/2014", 36, y16 + 4);
+          } else if (i == 4) {
+            doc.text("Res. MinTransporte No. 0067 de 01/09/2016", 30, y16 + 6);
+          } else if (i == 5) {
+            doc.text("Calle 63B No. 31 - 102", 37, y16 + 8);
+          } else {
+            doc.text("www.libertadexpress.com", 35, y16 + 10);
+          }
+        }
+        doc.setFontType("");
+        //********************Destinatario*************************
+        doc.addImage(img.src, "JPEG", 145, y5 + 1, 40, 15); //BARCODE
+        //Tipo pago
+        doc.rect(13, yRP, 187, 63); //Rectángulo principal
+        doc.rect(14, yRS, 185, 23); //rectángulo de abajo
+        doc.rect(14, y58, 34, 16); //FIrma del remitente
+        doc.rect(49, y58, 34, 32); //info envío
+        doc.rect(50, y58 + 1, 32, 5); //Unidades
+        doc.rect(50, y58 + 7, 32, 5); //Peso
+        doc.rect(50, y58 + 13, 32, 5); //Volumen
+        doc.rect(50, y58 + 19, 32, 5); //Vr. Asegurado
+        doc.rect(50, y58 + 25, 32, 5); //Vr. TOtal
+        doc.rect(84, y58, 34, 23); //Recibí a satisfación
+        doc.rect(119, y58, 30, 32); //Observaciones
+        doc.addImage(imgData, "JPEG", 151, y58 + 2, 49, 30); //logo
 
-      doc.setFontSize(8);
-      doc.text("Crédito", 94, 26); //Tipo pago
-      doc.setFontSize(6);
-      doc.rect(15, 29, 29, 4, "F"); // filled square fecha
-      doc.rect(15, 34, 3, 21, "F"); // filled square remitente
-      doc.rect(105, 34, 3, 21, "F"); // filled square destinatario
-      doc.rect(65, 29, 15, 4, "F"); // filled square origen
-      doc.rect(105, 29, 15, 4, "F"); // filled square servicio
-      doc.rect(155, 29, 15, 4, "F"); // filled square destino
-      doc.rect(77, 51, 12, 4, "F"); // filled square postalOrig
-      doc.rect(169, 51, 12, 4, "F"); // filled square postalDest
-      doc.rect(151, 57, 48, 3, "F"); // filled square IntentoEntrega
-      doc.setFont(); //tipo de letra
-      doc.setFontSize(8);
-      doc.setTextColor(255);
-      doc.setFontType("bold");
-      doc.text("Fecha y hora de envío", 16, 32);
-      doc.text("Origen", 66, 32);
-      doc.text("Servicio", 106, 32);
-      doc.text("Destino", 156, 32);
-      doc.setFontSize(6);
-      doc.text("REMITENTE", 17, 52, 90);
-      doc.text("DESTINATARIO", 107, 53, 90);
-      doc.setFontSize(5);
-      doc.text("COD.POSTAL", 78, 54);
-      doc.text("COD.POSTAL", 169, 54);
-      doc.text("INTENTO DE ENTREGA", 165, 59);
-      doc.setTextColor(0);
-      doc.setFontSize(4);
-      doc.text(
-        "El usuario deja expresa constancia que tuvo" +
-          "\n" +
-          "conocimiento del contrato que se encuentra publicado" +
-          "\n" +
-          "en la página web: www.libertadexpres.com y en las" +
-          "\n" +
-          "carteleras ubicadas en los puntos de ventas, que" +
-          "\n" +
-          "regula el servicio acordado entre las partes, cuyo" +
-          "\n" +
-          "contenido clausular acepta expresamente con la" +
-          "\n" +
-          "suscripción de este documento. Para la presentación " +
-          "\n" +
-          "de P.Q.R. remítase a nuestra página web " +
-          "\n" +
-          "www.libertadexpress.com o al PBX (5) 3317700",
-        15,
-        76
-      );
-      doc.text(
-        "Porque de tal manera amó Dios al mundo, que ha dado " +
-          "\n" +
-          "a su hijo unigénito para que todo aquel que en " +
-          "\n" +
-          "Él cree, no se pierda más tenga vida eterna.",
-        84,
-        85
-      );
-      doc.setFontSize(6);
-      doc.text("Firma del remitente", 15, 60);
-      doc.text("Unidades:", 51, 61);
-      doc.text("Peso:", 51, 67);
-      doc.text("Volumen:", 51, 73);
-      doc.text("Vr. Asegurado:", 51, 79);
-      doc.text("Vr. Total:", 51, 85);
-      doc.text("Recibí a satisfación", 85, 60);
-      doc.text("Observaciones en la entrega:", 120, 60);
-      doc.setFontType("");
-      doc.setFontSize(8);
-      doc.text("Fecha", 47, 32); //Fecha envío remitente
-      doc.text("Lugar", 82, 32); //Lugar origen remitente
+        doc.setFontSize(8);
+        doc.text("Crédito", 94, y26); //Tipo pago
+        doc.setFontSize(6);
+        doc.rect(15, y26 + 3, 29, 4, "F"); // filled square fecha
+        doc.rect(15, y26 + 8, 3, 21, "F"); // filled square remitente
+        doc.rect(105, y26 + 8, 3, 21, "F"); // filled square destinatario
+        doc.rect(65, y26 + 3, 15, 4, "F"); // filled square origen
+        doc.rect(105, y26 + 3, 15, 4, "F"); // filled square servicio
+        doc.rect(155, y26 + 3, 15, 4, "F"); // filled square destino
+        doc.rect(77, y26 + 25, 12, 4, "F"); // filled square postalOrig
+        doc.rect(169, y26 + 25, 12, 4, "F"); // filled square postalDest
+        doc.rect(151, y26 + 31, 48, 3, "F"); // filled square IntentoEntrega
+        doc.setFont(); //tipo de letra
+        doc.setFontSize(8);
+        doc.setTextColor(255);
+        doc.setFontType("bold");
+        doc.text("Fecha y hora de envío", 16, y26 + 6);
+        doc.text("Origen", 66, y26 + 6);
+        doc.text("Servicio", 106, y26 + 6);
+        doc.text("Destino", 156, y26 + 6);
+        doc.setFontSize(6);
+        doc.text("REMITENTE", 17, y26 + 26, 90);
+        doc.text("DESTINATARIO", 107, y26 + 27, 90);
+        doc.setFontSize(5);
+        doc.text("COD.POSTAL", 78, y26 + 28);
+        doc.text("COD.POSTAL", 169, y26 + 28);
+        doc.text("INTENTO DE ENTREGA", 165, y26 + 33);
+        doc.setTextColor(0);
+        doc.setFontSize(4);
+        doc.text(
+          "El usuario deja expresa constancia que tuvo" +
+            "\n" +
+            "conocimiento del contrato que se encuentra publicado" +
+            "\n" +
+            "en la página web: www.libertadexpres.com y en las" +
+            "\n" +
+            "carteleras ubicadas en los puntos de ventas, que" +
+            "\n" +
+            "regula el servicio acordado entre las partes, cuyo" +
+            "\n" +
+            "contenido clausular acepta expresamente con la" +
+            "\n" +
+            "suscripción de este documento. Para la presentación " +
+            "\n" +
+            "de P.Q.R. remítase a nuestra página web " +
+            "\n" +
+            "www.libertadexpress.com o al PBX (5) 3317700",
+          15,
+          y26 + 50
+        );
+        doc.text(
+          "Porque de tal manera amó Dios al mundo, que ha dado " +
+            "\n" +
+            "a su hijo unigénito para que todo aquel que en " +
+            "\n" +
+            "Él cree, no se pierda más tenga vida eterna.",
+          84,
+          y26 + 59
+        );
+        doc.setFontSize(6);
+        doc.text("Firma del remitente", 15, y26 + 34);
+        doc.text("Unidades:", 51, y26 + 35);
+        doc.text("Peso:", 51, y26 + 41);
+        doc.text("Volumen:", 51, y26 + 47);
+        doc.text("Vr. Asegurado:", 51, y26 + 53);
+        doc.text("Vr. Total:", 51, y26 + 59);
+        doc.text("Recibí a satisfación", 85, y26 + 34);
+        doc.text("Observaciones en la entrega:", 120, y26 + 34);
+        doc.setFontType("");
+        doc.setFontSize(8);
+        doc.text("Fecha", 47, y26 + 6); //Fecha envío remitente
+        doc.text("Lugar", 82, y26 + 6); //Lugar origen remitente
 
-      doc.text("Servicio", 123, 32); //Fecha envío destinatario
-      doc.text("Destino", 175, 32); //Lugar origen destinatario
-      doc.setFontSize(7);
-      doc.text("OS", 175, 27); //OS
+        doc.text("Servicio", 123, y26 + 6); //Fecha envío destinatario
+        doc.text("Destino", 175, y26 + 6); //Lugar origen destinatario
+        doc.setFontSize(7);
+        doc.text("OS", 175, y26 + 1); //OS
 
-      doc.text("Nombre remitente", 23, 38); //Nombre remitente
-      doc.text("NIT", 23, 41); //  NIT remitente
-      doc.text("direccion", 23, 44); //direccion remitente
-      doc.text("teléfono", 23, 47); //telefono remitente
-      doc.text("lugar", 23, 50); //lugar remitente
-      doc.text("cod postal", 90, 54); //Codigo postal remitente
+        doc.text("Nombre remitente", 23, y26 + 12); //Nombre remitente
+        doc.text("NIT", 23, y26 + 15); //  NIT remitente
+        doc.text("direccion", 23, y26 + 18); //direccion remitente
+        doc.text("teléfono", 23, y26 + 21); //telefono remitente
+        doc.text("lugar", 23, y26 + 24); //lugar remitente
+        doc.text("cod postal", 90, y26 + 28); //Codigo postal remitente
 
-      doc.text("Nombre destinatario", 110, 38); //Nombre destinatario
-      doc.text("NIT", 110, 41); //  NIT destinatario
-      doc.text("direccion", 110, 44); //direccion destinatario
-      doc.text("teléfono", 110, 47); //telefono destinatario
-      doc.text("lugar", 110, 50); //lugar destinatario
-      doc.text("cod postal", 182, 54); //Codigo postal destinatario
-      doc.line(90, 81, 90, 78); // vertical line
-      doc.text("Hora", 92, 76);
-      doc.line(98, 81, 98, 78); // vertical line
-      doc.text("Día", 100, 76);
-      doc.line(105, 81, 105, 78); // vertical line
-      doc.text("Mes", 106, 76);
-      doc.line(111, 81, 111, 78); // vertical line
-      doc.text("Año", 112, 76);
+        doc.text("Nombre destinatario", 110, y26 + 12); //Nombre destinatario
+        doc.text("NIT", 110, y26 + 15); //  NIT destinatario
+        doc.text("direccion", 110, y26 + 18); //direccion destinatario
+        doc.text("teléfono", 110, y26 + 21); //telefono destinatario
+        doc.text("lugar", 110, y26 + 24); //lugar destinatario
+        doc.text("cod postal", 182, y26 + 28); //Codigo postal destinatario
+        doc.line(90, y26 + 55, 90, y26 + 52); // vertical line
+        doc.text("Hora", 92, y26 + 50);
+        doc.line(98, y26 + 55, 98, y26 + 52); // vertical line
+        doc.text("Día", 100, y26 + 50);
+        doc.line(105, y26 + 55, 105, y26 + 52); // vertical line
+        doc.text("Mes", 106, y26 + 50);
+        doc.line(111, y26 + 55, 111, y26 + 52); // vertical line
+        doc.text("Año", 112, y26 + 50);
 
-      //datos envío
-      doc.setFontSize(6);
-      doc.text("1", 65, 63); //cantidad
-      doc.text("1", 65, 69); //peso
-      doc.text("1", 65, 75); //volumen
-      doc.text("1", 65, 81); //valor asegurado
-      doc.text("1", 65, 87); //valor social
+        //datos envío
+        doc.setFontSize(6);
+        doc.text("1", 65, y26 + 37); //cantidad
+        doc.text("1", 65, y26 + 43); //peso
+        doc.text("1", 65, y26 + 49); //volumen
+        doc.text("1", 65, y26 + 55); //valor asegurado
+        doc.text("1", 65, y26 + 61); //valor social
 
-      //Observación
-      doc.setFontSize(5);
-      doc.text("Observaciones", 120, 63); //Observaciones
-
-      //********************Prueba de entrega*************************
-      doc.addImage(img.src, "JPEG", 130, 105, 40, 15); //BARCODE
-
-      //Tipo pago
-      doc.setFontSize(8);
-      doc.text("Crédito", 94, 119); //Tipo pago
-      doc.setFontSize(6);
-      doc.text("Fecha", 43, 125); //Fecha envío remitente
-      doc.text("Lugar", 78, 125); //Lugar origen remitente
-
-      doc.text("Fecha", 120, 125); //Fecha envío destinatario
-      doc.text("Lugar", 163, 125); //Lugar origen destinatario
-      doc.setFontSize(7);
-      doc.text("OS", 175, 121); //OS
-
-      doc.text("Nombre remitente", 23, 131); //Nombre remitente
-      doc.text("NIT", 23, 134); //  NIT remitente
-      doc.text("direccion", 23, 137); //direccion remitente
-      doc.text("teléfono", 23, 140); //telefono remitente
-      doc.text("lugar", 23, 143); //lugar remitente
-      doc.text("cod postal", 92, 148); //Codigo postal remitente
-
-      doc.text("Nombre destinatario", 110, 131); //Nombre destinatario
-      doc.text("NIT", 110, 134); //  NIT destinatario
-      doc.text("direccion", 110, 137); //direccion destinatario
-      doc.text("teléfono", 110, 140); //telefono destinatario
-      doc.text("lugar", 110, 143); //lugar destinatario
-      doc.text("cod postal", 180, 148); //Codigo postal destinatario
-
-      //datos envío
-      doc.setFontSize(6);
-      doc.text("1", 62, 156); //cantidad
-      doc.text("1", 62, 161); //peso
-      doc.text("1", 62, 166); //volumen
-      doc.text("1", 62, 171); //valor asegurado
-      doc.text("1", 62, 176); //valor social
-
-      //Observación
-      doc.setFontSize(5);
-      doc.text("Observaciones", 119, 156); //Observaciones
-
-      //********************Remitente*************************
-      doc.addImage(img.src, "JPEG", 130, 196, 40, 15); //BARCODE
-
-      //Tipo pago
-      doc.setFontSize(8);
-      doc.text("Crédito", 94, 211); //Tipo pago
-      doc.setFontSize(6);
-      doc.text("Fecha", 43, 217); //Fecha envío remitente
-      doc.text("Lugar", 78, 217); //Lugar origen remitente
-
-      doc.text("Fecha", 120, 217); //Fecha envío destinatario
-      doc.text("Lugar", 163, 217); //Lugar origen destinatario
-      doc.setFontSize(7);
-      doc.text("OS", 175, 213); //OS
-
-      doc.text("Nombre remitente", 23, 223); //Nombre remitente
-      doc.text("NIT", 23, 226); //  NIT remitente
-      doc.text("direccion", 23, 229); //direccion remitente
-      doc.text("teléfono", 23, 232); //telefono remitente
-      doc.text("lugar", 23, 235); //lugar remitente
-      doc.text("cod postal", 92, 239); //Codigo postal remitente
-
-      doc.text("Nombre destinatario", 110, 223); //Nombre destinatario
-      doc.text("NIT", 110, 226); //  NIT destinatario
-      doc.text("direccion", 110, 229); //direccion destinatario
-      doc.text("teléfono", 110, 232); //telefono destinatario
-      doc.text("lugar", 110, 235); //lugar destinatario
-      doc.text("cod postal", 180, 239); //Codigo postal destinatario
-
-      //datos envío
-      doc.setFontSize(6);
-      doc.text("1", 62, 248); //cantidad
-      doc.text("1", 62, 253); //peso
-      doc.text("1", 62, 258); //volumen
-      doc.text("1", 62, 263); //valor asegurado
-      doc.text("1", 62, 268); //valor social
-
-      //Observación
-      doc.setFontSize(5);
-      doc.text("Observaciones", 119, 248); //Observaciones
-
+        //Observación
+        doc.setFontSize(5);
+        doc.text("Observaciones", 120, y26 + 37); //Observaciones
+        y5 = y5 + 97;
+        y16 = y16 + 97;
+        yRP = yRP + 97;
+        yRS = yRS + 97;
+        y58 = y58 + 97;
+        y26 = y26 + 97;
+      }
       doc.save("guía crédito_contado.pdf");
       this.code = "creado";
     },
