@@ -7,9 +7,10 @@
       <button @click="docLib">Doc. Liberación</button>
       <button @click="loteEntrega">Lote entrega</button>
       <button @click="manifiesto">Manifiesto</button>
+      <button @click="deliveryPdf">Domicilio</button>
     </div>
     <div ref="content">
-      <img id="code39" v-if="code==null" />
+      <img id="code39" v-if="code == null" />
     </div>
   </div>
 </template>
@@ -33,7 +34,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092126",
@@ -44,7 +45,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092127",
@@ -55,7 +56,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092128",
@@ -66,7 +67,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092129",
@@ -77,7 +78,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092130",
@@ -88,7 +89,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092131",
@@ -99,7 +100,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092132",
@@ -110,7 +111,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092133",
@@ -121,7 +122,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092134",
@@ -132,7 +133,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092135",
@@ -143,7 +144,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092136",
@@ -154,7 +155,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092137",
@@ -165,7 +166,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092138",
@@ -176,7 +177,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092139",
@@ -187,7 +188,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092140",
@@ -198,7 +199,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092141",
@@ -209,7 +210,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092142",
@@ -220,7 +221,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092143",
@@ -231,7 +232,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092144",
@@ -242,7 +243,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092145",
@@ -253,7 +254,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092146",
@@ -264,7 +265,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092147",
@@ -275,7 +276,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092127",
@@ -286,7 +287,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092148",
@@ -297,7 +298,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092149",
@@ -308,7 +309,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092150",
@@ -319,7 +320,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092151",
@@ -330,7 +331,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092152",
@@ -341,7 +342,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092153",
@@ -352,7 +353,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092154",
@@ -363,7 +364,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092155",
@@ -374,7 +375,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092156",
@@ -385,7 +386,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092157",
@@ -396,7 +397,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092158",
@@ -407,7 +408,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092159",
@@ -418,7 +419,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092160",
@@ -429,7 +430,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092161",
@@ -440,7 +441,7 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
+          nip: "1",
         },
         {
           guie: "1234092162",
@@ -451,15 +452,182 @@ export default {
           ciudad: "BARRANQUILLA",
           fecha: "21-07-2020",
           os: "2345",
-          nip: "1"
-        }
-      ]
+          nip: "1",
+        },
+      ],
+      delivery: {
+        service: "1234092162",
+        ramitente: "Mauricio Maldonado",
+        destinatario: "Lourdes Barreto",
+        direccion: "calle 21 # 26 72",
+        telefono: "3012345678",
+        ciudad: "BARRANQUILLA",
+        fecha: "21-07-2020",
+        os: "2345",
+        nip: "1",
+      },
     };
   },
   methods: {
+    deliveryPdf() {
+      JsBarcode("#code39", "0001", {
+        format: "CODE39",
+      });
+      let y5 = 5,
+        y16 = 16,
+        yRP = 28,
+        yRS = 33.5,
+        y58 = 58,
+        y26 = 26;
+      const img = document.querySelector("img#code39");
+      var imgDat = logo;
+      var imgData = entrega;
+      var doc = new jsPDF();
+      for (var j = 0; j < 2; j++) {
+        doc.setFont("arial"); //tipo de letra
+        doc.addImage(imgDat, "JPEG", 40, y5, 15, 8); //logo
+        for (var i = 0; i < 7; i++) {
+          if (i == 0) {
+            doc.setFontSize(8);
+            doc.text("Mensajería & Carga", 36, y16);
+            doc.setFontSize(6);
+            doc.setFontType("bold");
+            doc.text("  Ticket de" + "\n" + "  Servicio No", 125, y16);
+          } else if (i == 1) {
+            doc.text("Lic. MINTIC RPOSTAL 0356", 35, y16 + 2);
+          } else if (i == 2) {
+            doc.text("Resol. 876 del 29/04/2014", 36, y16 + 4);
+          } else if (i == 4) {
+            doc.text("Res. MinTransporte No. 0067 de 01/09/2016", 30, y16 + 6);
+          } else if (i == 5) {
+            doc.text("Calle 63B No. 31 - 102", 37, y16 + 8);
+          } else {
+            doc.text("www.libertadexpress.com", 35, y16 + 10);
+          }
+        }
+        doc.setFontType("");
+        //********************Destinatario*************************
+        doc.addImage(img.src, "JPEG", 145, y5 + 1, 40, 15); //BARCODE
+        //Tipo pago
+        doc.rect(13, yRP, 187, 63); //Rectángulo principal
+        doc.rect(14, yRS, 185, 23); //rectángulo de abajo
+        doc.rect(14, y58, 34, 16); //FIrma del remitente
+        doc.rect(49, y58, 34, 32); //info envío
+        doc.rect(50, y58 + 1, 32, 5); //Unidades
+        doc.rect(50, y58 + 7, 32, 5); //Peso
+        doc.rect(50, y58 + 13, 32, 5); //Volumen
+        doc.rect(50, y58 + 19, 32, 5); //Vr. Asegurado
+        doc.rect(50, y58 + 25, 32, 5); //Vr. TOtal
+        doc.rect(84, y58, 34, 23); //Recibí a satisfación
+        doc.rect(119, y58, 30, 32); //Observaciones
+        doc.addImage(imgData, "JPEG", 151, y58 + 2, 49, 30); //logo
+
+        doc.setFontSize(6);
+        doc.rect(15, y26 + 3, 29, 4, "F"); // filled square fecha
+        doc.rect(15, y26 + 8, 3, 21, "F"); // filled square remitente
+        doc.rect(105, y26 + 8, 3, 21, "F"); // filled square destinatario
+        doc.rect(65, y26 + 3, 15, 4, "F"); // filled square origen
+        doc.rect(105, y26 + 3, 15, 4, "F"); // filled square servicio
+        doc.rect(155, y26 + 3, 15, 4, "F"); // filled square destino
+        doc.rect(151, y26 + 31, 48, 3, "F"); // filled square IntentoEntrega
+        doc.setFont(); //tipo de letra
+        doc.setFontSize(8);
+        doc.setTextColor(255);
+        doc.setFontType("bold");
+        doc.text("Fecha y hora de envío", 16, y26 + 6);
+        doc.text("Origen", 66, y26 + 6);
+        doc.text("Servicio", 106, y26 + 6);
+        doc.text("Destino", 156, y26 + 6);
+        doc.setFontSize(6);
+        doc.text("REMITENTE", 17, y26 + 26, 90);
+        doc.text("DESTINATARIO", 107, y26 + 27, 90);
+        doc.setFontSize(5);
+        doc.text("INTENTO DE ENTREGA", 165, y26 + 33);
+        doc.setTextColor(0);
+        doc.setFontSize(4);
+        doc.text(
+          "El usuario deja expresa constancia que tuvo" +
+            "\n" +
+            "conocimiento del contrato que se encuentra publicado" +
+            "\n" +
+            "en la página web: www.libertadexpres.com y en las" +
+            "\n" +
+            "carteleras ubicadas en los puntos de ventas, que" +
+            "\n" +
+            "regula el servicio acordado entre las partes, cuyo" +
+            "\n" +
+            "contenido clausular acepta expresamente con la" +
+            "\n" +
+            "suscripción de este documento. Para la presentación " +
+            "\n" +
+            "de P.Q.R. remítase a nuestra página web " +
+            "\n" +
+            "www.libertadexpress.com o al PBX (5) 3317700",
+          15,
+          y26 + 50
+        );
+        doc.text(
+          "Porque de tal manera amó Dios al mundo, que ha dado " +
+            "\n" +
+            "a su hijo unigénito para que todo aquel que en " +
+            "\n" +
+            "Él cree, no se pierda más tenga vida eterna.",
+          84,
+          y26 + 59
+        );
+        doc.setFontSize(6);
+        doc.text("Firma del remitente", 15, y26 + 34);
+        doc.text("Unidades:", 51, y26 + 35);
+        doc.text("Peso:", 51, y26 + 41);
+        doc.text("Volumen:", 51, y26 + 47);
+        doc.text("Vr. Asegurado:", 51, y26 + 53);
+        doc.text("Vr. Total:", 51, y26 + 59);
+        doc.text("Recibí a satisfación", 85, y26 + 34);
+        doc.text("Observaciones en la entrega:", 120, y26 + 34);
+        doc.setFontType("");
+        doc.setFontSize(8);
+        doc.text("Fecha", 47, y26 + 6); //Fecha envío remitente
+        doc.text("Lugar", 82, y26 + 6); //Lugar origen remitente
+        doc.text("Servicio", 123, y26 + 6); //Fecha envío destinatario
+        doc.text("Destino", 175, y26 + 6); //Lugar origen destinatario
+        doc.setFontSize(6);
+        doc.text("Nombre remitente", 20.5, y26 + 12 - 2); //Nombre remitente
+        doc.text("NIT", 20.5, y26 + 15 - 2.5); //  NIT remitente
+        doc.text("direccion", 20.5, y26 + 18 - 2.9); //direccion remitente
+        doc.text("teléfono", 20.5, y26 + 21 - 2.9); //telefono remitente
+        doc.text("lugar", 20.5, y26 + 24 - 2.9); //lugar remitente
+        doc.setFontType("bold");
+        doc.text("Observaciones en la recogida:", 20.5, y26 + 27 - 2.9); //Observaciones origen
+        doc.text("Observaciones en la entrega:", 110, y26 + 27 - 2.9); //Observaciones destino
+        doc.setFontType("");
+        doc.text("Observaciones para el origen:", 20.5, y26 + 30 - 2.9); //Observaciones origen
+        doc.text("Observaciones para el destino:", 110, y26 + 30 - 2.9); //Observaciones destino
+        doc.text("Nombre destinatario", 110, y26 + 12 - 2); //Nombre destinatario
+        doc.text("NIT", 110, y26 + 15 - 2.5); //  NIT destinatario
+        doc.text("direccion", 110, y26 + 18 - 2.9); //direccion destinatario
+        doc.text("teléfono", 110, y26 + 21 - 2.9); //telefono destinatario
+        doc.text("lugar", 110, y26 + 24 - 2.9); //lugar destinatario
+        doc.line(90, y26 + 55, 90, y26 + 52); // vertical line
+        doc.text("Hora", 92, y26 + 50);
+        doc.line(98, y26 + 55, 98, y26 + 52); // vertical line
+        doc.text("Día", 100, y26 + 50);
+        doc.line(105, y26 + 55, 105, y26 + 52); // vertical line
+        doc.text("Mes", 106, y26 + 50);
+        doc.line(111, y26 + 55, 111, y26 + 52); // vertical line
+        doc.text("Año", 112, y26 + 50);
+        y5 = y5 + 97;
+        y16 = y16 + 97;
+        yRP = yRP + 97;
+        yRS = yRS + 97;
+        y58 = y58 + 97;
+        y26 = y26 + 97;
+      }
+      doc.save("guía crédito_contado.pdf");
+      this.code = "creado";
+    },
     download() {
       JsBarcode("#code39", "12345678901237", {
-        format: "CODE39"
+        format: "CODE39",
       });
       let y5 = 5,
         y16 = 16,
@@ -651,7 +819,7 @@ export default {
       const doc = new jsPDF();
       for (let i = 0; i < this.datas.length; i++) {
         JsBarcode("#code39", this.datas[i].guie, {
-          format: "CODE39"
+          format: "CODE39",
         });
 
         const img = document.querySelector("img#code39");
@@ -926,7 +1094,7 @@ export default {
     },
     informe() {
       JsBarcode("#code39", "12345678901237", {
-        format: "CODE39"
+        format: "CODE39",
       });
 
       const img = document.querySelector("img#code39");
@@ -1211,8 +1379,8 @@ export default {
       doc.line(137, 277, 170, 277); // horizontal line
       doc.text("Quien recibe" + "\n" + "el manifiesto", 137, 280, "center");
       doc.save("manifiesto.pdf");
-    }
-  }
+    },
+  },
 };
 </script>
 
